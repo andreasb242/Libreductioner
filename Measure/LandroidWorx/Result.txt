@@ -1,0 +1,3 @@
+The red line is the self built sender. The blue one the original.
+
+Measured with a coil of a 24V Relais.
