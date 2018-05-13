@@ -20,7 +20,7 @@ U 1 1 5A48BCE9
 P 2500 2150
 F 0 "U1" H 2550 3517 50  0000 C CNN
 F 1 "ATMEGA168A-AU" H 2550 3426 50  0000 C CNN
-F 2 "Housings_QFP:TQFP-32_7x7mm_Pitch0.8mm" H 2500 2150 50  0001 C CIN
+F 2 "Package_QFP:TQFP-32_7x7mm_P0.8mm" H 2500 2150 50  0001 C CIN
 F 3 "http://www.atmel.com/images/atmel-8271-8-bit-avr-microcontroller-atmega48a-48pa-88a-88pa-168a-168pa-328-328p_datasheet.pdf" H 2500 2150 50  0001 C CNN
 	1    2500 2150
 	1    0    0    -1  
@@ -81,7 +81,7 @@ U 1 1 5A48C076
 P 1400 1900
 F 0 "C3" H 1515 1946 50  0000 L CNN
 F 1 "100n" H 1515 1855 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1438 1750 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.50mm_HandSolder" H 1438 1750 50  0001 C CNN
 F 3 "" H 1400 1900 50  0001 C CNN
 	1    1400 1900
 	1    0    0    -1  
@@ -109,7 +109,7 @@ U 1 1 5A48C300
 P 1000 1050
 F 0 "C2" H 1115 1096 50  0000 L CNN
 F 1 "100n" H 1115 1005 50  0000 L CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 1038 900 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.50mm_HandSolder" H 1038 900 50  0001 C CNN
 F 3 "" H 1000 1050 50  0001 C CNN
 	1    1000 1050
 	1    0    0    -1  
@@ -191,7 +191,7 @@ U 1 1 5A48F655
 P 5150 1450
 F 0 "C4" V 4898 1450 50  0000 C CNN
 F 1 "22n" V 4989 1450 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5188 1300 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.50mm_HandSolder" H 5188 1300 50  0001 C CNN
 F 3 "" H 5150 1450 50  0001 C CNN
 	1    5150 1450
 	0    1    1    0   
@@ -202,7 +202,7 @@ U 1 1 5A48F702
 P 5150 1750
 F 0 "C5" V 4898 1750 50  0000 C CNN
 F 1 "22n" V 4989 1750 50  0000 C CNN
-F 2 "Capacitors_SMD:C_0805_HandSoldering" H 5188 1600 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.50mm_HandSolder" H 5188 1600 50  0001 C CNN
 F 3 "" H 5150 1750 50  0001 C CNN
 	1    5150 1750
 	0    1    1    0   
@@ -1499,6 +1499,6 @@ F 3 "" H 5100 4850 50  0001 C CNN
 	1    5100 4850
 	1    0    0    -1  
 $EndComp
-Text Notes 8550 4850 0    50   ~ 0
-FET support 30A at 5V Vds, 100A at 6V Vds
+Text Notes 8550 4950 0    50   ~ 0
+FET support 30A at 5V Vds, 100A at 6V Vds\nAVR Supports 5V, with Optocupler more is possible
 $EndSCHEMATC
