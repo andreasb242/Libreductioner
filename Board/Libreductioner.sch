@@ -1499,6 +1499,6 @@ F 3 "" H 5100 4850 50  0001 C CNN
 	1    5100 4850
 	1    0    0    -1  
 $EndComp
-Text Notes 8550 4850 0    50   ~ 0
-FET support 30A at 5V Vds, 100A at 6V Vds
+Text Notes 8550 4950 0    50   ~ 0
+FET support 30A at 5V Vds, 100A at 6V Vds\nAVR Supports 5V, with Optocupler more is possible
 $EndSCHEMATC
