@@ -1,4 +1,4 @@
-(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-dev-unknown-f73b9a5~65~ubuntu16.04.1)
+(kicad_pcb (version 20171130) (host pcbnew 5.0.0-rc2-unknown-2d812c2~65~ubuntu16.04.1)
 
   (general
     (thickness 1.6)
@@ -2664,7 +2664,7 @@
   (gr_text Pulldown (at 74.041 97.282) (layer F.SilkS)
     (effects (font (size 0.8 0.8) (thickness 0.1)) (justify left))
   )
-  (gr_text "Rev. 1.0\n13.05.2018\nAndreas Butti" (at 89.535 79.756) (layer B.SilkS)
+  (gr_text "Rev. 1.0.1\n22.05.2018\nAndreas Butti" (at 89.535 79.756) (layer B.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)) (justify mirror))
   )
   (dimension 50.165 (width 0.3) (layer Eco2.User)
@@ -2741,10 +2741,10 @@
   (gr_line (start 118.11 70.104) (end 118.11 67.945) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 118.11 80.137) (end 118.11 70.104) (layer Edge.Cuts) (width 0.15) (tstamp 5AF7654C))
   (gr_line (start 67.945 80.137) (end 67.945 67.945) (layer Edge.Cuts) (width 0.15))
-  (gr_text - (at 113.157 111.252) (layer F.SilkS) (tstamp 5B0A8FD4)
+  (gr_text - (at 113.157 123.952) (layer F.SilkS) (tstamp 5B0A8FD4)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
-  (gr_text + (at 113.157 123.952) (layer F.SilkS) (tstamp 5B0A8FE3)
+  (gr_text + (at 113.157 111.252) (layer F.SilkS) (tstamp 5B045D59)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_text Vin (at 116.586 125.603 90) (layer F.SilkS) (tstamp 5B0A8FC9)
