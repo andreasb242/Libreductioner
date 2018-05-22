@@ -23,32 +23,32 @@
 /**
  * RGB LED Pin Red (+)
  */
-const int LED_R = 2;
+const int LED_R = 12;
 
 /**
  * RGB LED Pin Green (+)
  */
-const int LED_G = 3;
+const int LED_G = 11;
 
 /**
  * RGB LED Pin Blue (+)
  */
-const int LED_B = 4;
+const int LED_B = 10;
 
 /**
  * Signal out (to transistor, followed by a 333Ω Resistor to C+)
  */
-const int SIGNAL_OUT = 5;
+const int SIGNAL_OUT = 9;
 
 /**
  * Signal measure (10kΩ Resitor to C+)
  */
-const int SIGNAL_MEASURE = 6;
+const int SIGNAL_MEASURE = 4;
 
 /**
  * Switch to true to disable check, e.g. to measure signal
  */
-#define FORCE_OUTPUT true
+#define FORCE_OUTPUT false
 
 /**
  * If the singnal is inverted (because of a transistor)
