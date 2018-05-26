@@ -37,6 +37,22 @@ public:
    */
   bool isSelfcheckPassed();
 
+  /**
+   * Start signal output
+   */
+  void start();
+
+  /**
+   * Stop signal optput
+   */
+  void stop();
+
+private:
+  /**
+   * Timer callback
+   */
+  static void timerCallback();
+
 private:
   /**
    * If the selfcheck has passed

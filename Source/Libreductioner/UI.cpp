@@ -100,18 +100,8 @@ void UiController::writeLeds() {
   }
   
   digitalWrite(LED_R, (color & 0b100) != 0);
-
-  if ((color & 0b010) != 0) {
-    analogWrite(LED_G, LED_BRIGHTNESS);
-  } else {
-    digitalWrite(LED_G, LOW);
-  }
-
-  if ((color & 0b001) != 0) {
-    analogWrite(LED_B, LED_BRIGHTNESS);
-  } else {
-    digitalWrite(LED_B, LOW);
-  }
+  digitalWrite(LED_G, (color & 0b010) != 0);
+  digitalWrite(LED_B, (color & 0b001) != 0);
 }
 
 /**

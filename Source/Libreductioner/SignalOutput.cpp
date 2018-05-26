@@ -9,6 +9,10 @@
 
 #include "SignalOutput.h"
 
+// Install via Library Manager "TimerThree"
+#include "TimerOne.h"
+
+
 /**
  * Single instance of Signal output controller
  */
@@ -39,6 +43,9 @@ void SignalOutputController::setup() {
   digitalWrite(SIGNAL_OUT, LOW);
 
   pinMode(SIGNAL_MEASURE, INPUT_PULLUP);
+
+  Timer1.initialize(1000000 / 78);
+  Timer1.attachInterrupt(SignalOutputController::timerCallback); // blinkLED to run every 0.15 seconds
 }
 
 /**
@@ -97,40 +104,38 @@ bool SignalOutputController::isSelfcheckPassed() {
 }
 
 /**
+ * Timer callback
+ * 
  * Output the signal (78Hz, measured / tested)
- *//*
-void SignalOutputController::outputSignal() {
-  while (true) {
-    delay(12);
-    delayMicroseconds(800);
-    
-    if (g_Inverted) {
-      digitalWrite(SIGNAL_OUT, HIGH);
-    } else {
-      digitalWrite(SIGNAL_OUT, LOW);
-    }
-    
-    if (digitalRead(SIGNAL_MEASURE) == g_Inverted) {
-      g_SelfcheckPassed = false;
-      // Connection lost
-      return;
-    }
+ */
+void SignalOutputController::timerCallback() {
+  digitalWrite(SIGNAL_OUT, LOW);
 
-    if (m_inverted) {
-      digitalWrite(SIGNAL_OUT, LOW);
-    } else {
-      digitalWrite(SIGNAL_OUT, HIGH);
-    }
-
-    delayMicroseconds(138);
-
-    if (m_inverted) {
-      digitalWrite(SIGNAL_OUT, HIGH);
-    } else {
-      digitalWrite(SIGNAL_OUT, LOW);
-    }
+  digitalWrite(SIGNAL_OUT, HIGH);
+/*  if (digitalRead(SIGNAL_MEASURE) == HIGH) {
+    signalOutput.m_selfcheckPassed = false;
+    signalOutput.stop();
+    Serial.println("Connection lost");
   }
-}
 */
+  delayMicroseconds(138);
 
+  digitalWrite(SIGNAL_OUT, LOW);
+}
+
+
+/**
+ * Start signal output
+ */
+void SignalOutputController::start() {
+  Timer1.start();
+}
+
+/**
+ * Stop signal optput
+ */
+void SignalOutputController::stop() {
+  Timer1.stop();
+}
+ 
 

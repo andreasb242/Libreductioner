@@ -26,11 +26,15 @@ bool g_selfcheckPassed = false;
  */
 void setup() {
   ui.setup();
-  signalOutput.setup();
 
   Serial.begin(9600);
   Serial.println("Libreductioner, (c) Andreas Butti, 2018");
   Serial.println("https://github.com/andreasb242/Libreductioner");
+
+  // Some time for capacitor to charge
+  delay(3000);
+
+  signalOutput.setup();
 }
 
 /**
@@ -48,11 +52,12 @@ void loop() {
     } else {
       // Still not connected, check not passed
       ui.setLed(LED_C_RED_BLINK);
+      signalOutput.stop();
     }
 
   } else {
     ui.setLed(LED_C_GREEN);
-    //outputSignal();
+    signalOutput.start();
   }
 }
 
