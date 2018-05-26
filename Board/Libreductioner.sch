@@ -765,17 +765,11 @@ Wire Wire Line
 	3200 4450 3050 4450
 Wire Wire Line
 	3050 4450 3050 4550
-Text Label 4100 4450 2    50   ~ 0
+Text Label 4750 4450 2    50   ~ 0
 D11/MOSI
-Text Label 4100 4250 2    50   ~ 0
+Text Label 4750 4250 2    50   ~ 0
 D12/MISO
-Wire Wire Line
-	3600 4250 4100 4250
-Wire Wire Line
-	3600 4450 4100 4450
-Wire Wire Line
-	3600 4650 4100 4650
-Text Label 4100 4650 2    50   ~ 0
+Text Label 4750 4650 2    50   ~ 0
 D10
 $Comp
 L Isolator:PC817 U3
@@ -1032,8 +1026,6 @@ Wire Wire Line
 Connection ~ 10350 5750
 Text Label 7150 5150 0    50   ~ 0
 BUFFERED12V
-Wire Wire Line
-	7450 4350 7250 4350
 $Comp
 L power:GND #PWR0102
 U 1 1 5AFC1E8B
@@ -1112,10 +1104,6 @@ Connection ~ 7900 5750
 Connection ~ 7750 5150
 Wire Wire Line
 	7750 5150 7150 5150
-Wire Wire Line
-	7750 5150 7750 4550
-Wire Wire Line
-	7750 4550 7250 4550
 Text Label 8550 4700 0    50   ~ 0
 D9
 $Comp
@@ -1501,4 +1489,61 @@ F 3 "" H 5100 4850 50  0001 C CNN
 $EndComp
 Text Notes 8550 4950 0    50   ~ 0
 FET support 30A at 5V Vds, 100A at 6V Vds\nAVR Supports 5V, with Optocupler more is possible
+Wire Wire Line
+	4050 4250 4750 4250
+Wire Wire Line
+	4050 4450 4750 4450
+Wire Wire Line
+	4050 4650 4750 4650
+Wire Wire Line
+	3750 4650 3600 4650
+Wire Wire Line
+	3600 4450 3750 4450
+Wire Wire Line
+	3750 4250 3600 4250
+Wire Wire Line
+	7250 4350 7350 4350
+Wire Wire Line
+	7350 4350 7350 4500
+Wire Wire Line
+	7350 4500 7750 4500
+Wire Wire Line
+	7750 4500 7750 5150
+Wire Wire Line
+	7450 4350 7450 4550
+Wire Wire Line
+	7450 4550 7250 4550
+$Comp
+L Device:R R16
+U 1 1 5B129EEC
+P 3900 4250
+F 0 "R16" H 3970 4296 50  0000 L CNN
+F 1 "1k" H 3970 4205 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.50mm_HandSolder" V 3830 4250 50  0001 C CNN
+F 3 "~" H 3900 4250 50  0001 C CNN
+	1    3900 4250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R17
+U 1 1 5B12A029
+P 3900 4450
+F 0 "R17" H 3970 4496 50  0000 L CNN
+F 1 "1k" H 3970 4405 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.50mm_HandSolder" V 3830 4450 50  0001 C CNN
+F 3 "~" H 3900 4450 50  0001 C CNN
+	1    3900 4450
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R R18
+U 1 1 5B12A0A1
+P 3900 4650
+F 0 "R18" H 3970 4696 50  0000 L CNN
+F 1 "1k" H 3970 4605 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.50mm_HandSolder" V 3830 4650 50  0001 C CNN
+F 3 "~" H 3900 4650 50  0001 C CNN
+	1    3900 4650
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
