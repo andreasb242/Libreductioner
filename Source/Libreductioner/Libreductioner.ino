@@ -1,5 +1,6 @@
 /**
- * Sender Unit for Worx Landroid
+ * Libreductioner
+ * Sender Unit for Worx Landroid and other Mower
  * 
  * (c) Andreas Butti, 2018
  * andreasbutti at gmail dot com
@@ -14,12 +15,13 @@
 
 #include "UI.h"
 #include "SignalOutput.h"
+#include "Menu.h"
 
 
 /**
- * If the selfcheck has passed
+ * Last state, to log changes
  */
-bool g_selfcheckPassed = false;
+uint8_t g_lastCableConnected = 0;
 
 /**
  * Setup IO
@@ -27,7 +29,7 @@ bool g_selfcheckPassed = false;
 void setup() {
   ui.setup();
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.println("Libreductioner, (c) Andreas Butti, 2018");
   Serial.println("https://github.com/andreasb242/Libreductioner");
 
@@ -35,29 +37,31 @@ void setup() {
   delay(3000);
 
   signalOutput.setup();
+  signalOutput.start();
 }
 
 /**
  * Main Loop
  */
 void loop() {
-  ui.loop();
-
-  if (!signalOutput.isSelfcheckPassed()) {
-    // Selfcheck needs to be passed once
-    if (signalOutput.selfcheck()) {
-      ui.setLed(LED_C_CYAN);
-      delay(500);
-
-    } else {
-      // Still not connected, check not passed
-      ui.setLed(LED_C_RED_BLINK);
-      signalOutput.stop();
-    }
-
-  } else {
-    ui.setLed(LED_C_GREEN);
+  if (ui.loop()) {
+    signalOutput.stop();
+    menu.loop();
     signalOutput.start();
+  }
+
+  if (signalOutput.isCableConnected()) {
+    if (g_lastCableConnected != 1) {
+      ui.setLed(LED_C_GREEN);
+      g_lastCableConnected = 1;
+      Serial.println("Cable connected");
+    }
+  } else {
+    if (g_lastCableConnected != 2) {
+      ui.setLed(LED_C_RED_BLINK);
+      g_lastCableConnected = 2;
+      Serial.println("Cable disconnected");
+    }
   }
 }
 

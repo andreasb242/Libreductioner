@@ -1,5 +1,6 @@
 /**
- * Sender Unit for Worx Landroid
+ * Libreductioner
+ * Sender Unit for Worx Landroid and other Mower
  * 
  * (c) Andreas Butti, 2018
  * andreasbutti at gmail dot com
@@ -29,13 +30,25 @@ public:
 
   /**
    * Loop call for blinking LEDs / key query
+   * 
+   * Return true to go into menuLoop
    */
-  void loop();
+  bool loop();
 
   /**
    * Set the LED Color
    */
   void setLed(uint8_t color);
+
+  /**
+   * Check button A
+   */
+  bool isButtonADown();
+
+  /**
+   * Check button B
+   */
+  bool isButtonBDown();
 
 private:
   /**

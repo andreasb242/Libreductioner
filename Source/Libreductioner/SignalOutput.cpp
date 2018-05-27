@@ -1,5 +1,6 @@
 /**
- * Sender Unit for Worx Landroid
+ * Libreductioner
+ * Sender Unit for Worx Landroid and other Mower
  * 
  * (c) Andreas Butti, 2018
  * andreasbutti at gmail dot com
@@ -44,80 +45,42 @@ void SignalOutputController::setup() {
 
   pinMode(SIGNAL_MEASURE, INPUT_PULLUP);
 
-  Timer1.initialize(1000000 / 78);
+  Timer1.initialize(1000000 / 78); // 78Hz
   Timer1.attachInterrupt(SignalOutputController::timerCallback); // blinkLED to run every 0.15 seconds
 }
 
 /**
- * Check connection, print debug log to serial console
+ * If there is a cable connected
  */
-bool SignalOutputController::selfcheck() {
-  bool ok = true;
-  
-  digitalWrite(SIGNAL_OUT, LOW);
-  delay(10);
-  if (digitalRead(SIGNAL_MEASURE) == LOW) {
-    if (m_failedCheckId != 1) {
-      Serial.println("CHECK 1 failed");
-      m_failedCheckId = 1;
-    }
-    ok = false;
-  }
-
-
-  digitalWrite(SIGNAL_OUT, HIGH);
-  delayMicroseconds(10);
-  if (digitalRead(SIGNAL_MEASURE) == HIGH) {
-    if (m_failedCheckId != 2) {
-      Serial.println("CHECK 2 failed");
-      m_failedCheckId = 2;
-    }
-    ok = false;
-  }
-  delay(10);
-  if (digitalRead(SIGNAL_MEASURE) == LOW) {
-    if (m_failedCheckId != 3) {
-      Serial.println("CHECK 3 failed");
-      m_failedCheckId = 3;
-    }
-    ok = false;
-  }
-
-
-  // Turn off
-  digitalWrite(SIGNAL_OUT, LOW);
-
-  if (ok && m_failedCheckId != 0) {
-    Serial.println("CHECK passed");
-    m_failedCheckId = 0;
-  }
-
-  m_selfcheckPassed = ok;
-  return ok;
+bool SignalOutputController::isCableConnected() {
+  return m_cableConnected;
 }
 
 /**
- * Return the flag if the selfcheck is passed, does not check again
+ * Write output
  */
-bool SignalOutputController::isSelfcheckPassed() {
-  return m_selfcheckPassed;
+void SignalOutputController::write(bool value) {
+  digitalWrite(SIGNAL_OUT, value);
 }
 
 /**
- * Timer callback
- * 
- * Output the signal (78Hz, measured / tested)
+ * Read check value
+ */
+bool SignalOutputController::read() {
+  return digitalRead(SIGNAL_MEASURE);
+}
+
+/**
+ * Timer callback, create an 78Hz output singla
  */
 void SignalOutputController::timerCallback() {
-  digitalWrite(SIGNAL_OUT, LOW);
+  if (digitalRead(SIGNAL_MEASURE) == HIGH) {
+    signalOutput.m_cableConnected = false;
+  } else {
+    signalOutput.m_cableConnected = true;
+  }
 
   digitalWrite(SIGNAL_OUT, HIGH);
-/*  if (digitalRead(SIGNAL_MEASURE) == HIGH) {
-    signalOutput.m_selfcheckPassed = false;
-    signalOutput.stop();
-    Serial.println("Connection lost");
-  }
-*/
   delayMicroseconds(138);
 
   digitalWrite(SIGNAL_OUT, LOW);

@@ -1,5 +1,6 @@
 /**
- * Sender Unit for Worx Landroid
+ * Libreductioner
+ * Sender Unit for Worx Landroid and other Mower
  * 
  * (c) Andreas Butti, 2018
  * andreasbutti at gmail dot com
@@ -28,14 +29,9 @@ public:
   void setup();
 
   /**
-   * Check connection, print debug log to serial console
+   * If there is a cable connected
    */
-  bool selfcheck();
-
-  /**
-   * Return the flag if the selfcheck is passed, does not check again
-   */
-  bool isSelfcheckPassed();
+  bool isCableConnected();
 
   /**
    * Start signal output
@@ -47,6 +43,16 @@ public:
    */
   void stop();
 
+  /**
+   * Write output
+   */
+  void write(bool value);
+
+  /**
+   * Read check value
+   */
+  bool read();
+
 private:
   /**
    * Timer callback
@@ -55,15 +61,9 @@ private:
 
 private:
   /**
-   * If the selfcheck has passed
+   * If there is a cable connected
    */
-  bool m_selfcheckPassed = false;
-
-  /**
-   * Failed check number
-   */
-  uint8_t m_failedCheckId = 0xff;
-
+  bool m_cableConnected = false;
 };
 
 /**
