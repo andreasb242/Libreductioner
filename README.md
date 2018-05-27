@@ -1,7 +1,10 @@
 # Libreductioner
 Induction loop sender for mower.
 
-* Currently work in Progress - the breadboard version was working, the board is not yet produced! *
+Tested and working with Landroid Worx. All Bugs in the Board are corrected with Version 1.1, all additional, no-needed Parts are removed.
+
+# Extension / Support for other mower
+If you have another mower, or would like to improve the Board: Create a Pull request!
 
 ## Board / Circuit
 The Board / Circuit is created with KiCad.
