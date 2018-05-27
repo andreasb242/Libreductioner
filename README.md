@@ -3,6 +3,9 @@ Induction loop sender for mower.
 
 Tested and working with Landroid Worx. All Bugs in the Board are corrected with Version 1.1, all additional, no-needed Parts are removed.
 
+# Forum Thread
+Mikrocontroller.net: https://www.mikrocontroller.net/topic/451337 (German)
+
 # Extension / Support for other mower
 If you have another mower, or would like to improve the Board: Create a Pull request!
 
