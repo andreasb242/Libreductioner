@@ -665,7 +665,7 @@ Connection ~ 10200 4100
 Wire Wire Line
 	10200 4100 10050 4100
 $Comp
-L Connector_Generic:Conn_01x02_Male J1
+L Libreductioner-rescue:Conn_01x02_Male-Connector_Generic J1
 U 1 1 5AFB1F28
 P 9250 6100
 F 0 "J1" V 9403 5913 50  0000 R CNN
@@ -732,7 +732,7 @@ F 3 "~" H 10300 5950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02_Male J2
+L Libreductioner-rescue:Conn_01x02_Male-Connector_Generic J2
 U 1 1 5B0B6952
 P 8400 1650
 F 0 "J2" H 8373 1530 50  0000 R CNN
@@ -823,7 +823,7 @@ $EndComp
 Wire Wire Line
 	1000 1750 1000 2100
 $Comp
-L Connector_Generic:Conn_01x02_Male J5
+L Libreductioner-rescue:Conn_01x02_Male-Connector_Generic J5
 U 1 1 5AFD4D2A
 P 9200 6150
 F 0 "J5" V 9353 5963 50  0000 R CNN
@@ -843,7 +843,7 @@ Wire Wire Line
 Wire Wire Line
 	9200 5900 9250 5900
 $Comp
-L Connector_Generic:Conn_01x02_Male J6
+L Libreductioner-rescue:Conn_01x02_Male-Connector_Generic J6
 U 1 1 5AFE4BC9
 P 8450 1700
 F 0 "J6" V 8603 1513 50  0000 R CNN
@@ -1095,7 +1095,7 @@ Wire Wire Line
 	7100 1450 7100 1350
 Connection ~ 7100 1450
 $Comp
-L Connector_Generic:Conn_01x06_Female P_AVR1
+L Libreductioner-rescue:Conn_01x06_Female-Connector_Generic P_AVR1
 U 1 1 5AF8AE9E
 P 2150 4450
 F 0 "P_AVR1" V 2090 4062 50  0000 R CNN
@@ -1108,82 +1108,10 @@ $EndComp
 Wire Wire Line
 	2150 4450 2150 4650
 NoConn ~ 2050 4650
-$Comp
-L Device:R R14
-U 1 1 5B00B932
-P 4100 6450
-F 0 "R14" H 4170 6496 50  0000 L CNN
-F 1 "10k" H 4170 6405 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.50mm_HandSolder" V 4030 6450 50  0001 C CNN
-F 3 "~" H 4100 6450 50  0001 C CNN
-	1    4100 6450
-	1    0    0    -1  
-$EndComp
-$Comp
-L Device:R R15
-U 1 1 5B00B938
-P 4100 6850
-F 0 "R15" H 4170 6896 50  0000 L CNN
-F 1 "1k" H 4170 6805 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.50mm_HandSolder" V 4030 6850 50  0001 C CNN
-F 3 "~" H 4100 6850 50  0001 C CNN
-	1    4100 6850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4100 6700 4100 6650
-Wire Wire Line
-	4100 6300 4100 6150
-Wire Wire Line
-	4100 7000 4100 7200
-$Comp
-L power:GND #PWR0116
-U 1 1 5B00B941
-P 4100 7200
-F 0 "#PWR0116" H 4100 6950 50  0001 C CNN
-F 1 "GND" H 4105 7027 50  0000 C CNN
-F 2 "" H 4100 7200 50  0001 C CNN
-F 3 "" H 4100 7200 50  0001 C CNN
-	1    4100 7200
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	4100 6650 3950 6650
-Connection ~ 4100 6650
-Wire Wire Line
-	4100 6650 4100 6600
-Text Label 3950 6650 0    50   ~ 0
-A1
-$Comp
-L Connector_Generic:Conn_01x02_Male J3
-U 1 1 5B016FF4
-P 4200 5950
-F 0 "J3" V 4260 5990 50  0000 L CNN
-F 1 "Conn_01x02_Male" V 4351 5990 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 4200 5950 50  0001 C CNN
-F 3 "~" H 4200 5950 50  0001 C CNN
-	1    4200 5950
-	0    1    1    0   
-$EndComp
-Wire Wire Line
-	4200 6150 4600 6150
-Wire Wire Line
-	4600 6150 4600 6550
-$Comp
-L power:GND #PWR0117
-U 1 1 5B021DB4
-P 4600 6550
-F 0 "#PWR0117" H 4600 6300 50  0001 C CNN
-F 1 "GND" H 4605 6377 50  0000 C CNN
-F 2 "" H 4600 6550 50  0001 C CNN
-F 3 "" H 4600 6550 50  0001 C CNN
-	1    4600 6550
-	1    0    0    -1  
-$EndComp
 Text Notes 8050 4800 3    50   ~ 0
 5...50mA, Peak 1A\nKeeps induction Voltage away from AVR
 $Comp
-L Connector_Generic:Conn_01x02_Male J4
+L Libreductioner-rescue:Conn_01x02_Male-Connector_Generic J4
 U 1 1 5AFAC480
 P 6400 2850
 F 0 "J4" V 6460 2890 50  0000 L CNN
@@ -1351,16 +1279,6 @@ Wire Notes Line
 	6000 3700 6000 2300
 Text Notes 6050 2400 0    50   ~ 0
 5V Input, if separat powered
-Wire Notes Line
-	3700 5400 5700 5400
-Wire Notes Line
-	5700 5400 5700 7750
-Wire Notes Line
-	5700 7750 3700 7750
-Wire Notes Line
-	3700 7750 3700 5400
-Text Notes 3750 5600 0    50   ~ 0
-Mesuring circuit,\nto measure a Singnal from another generator
 $Comp
 L Device:LED D3
 U 1 1 5B2A2EF9
