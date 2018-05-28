@@ -27,7 +27,7 @@ Menu::Menu() {
  * Loop call for menu
  */
 void Menu::loop() {
-  Serial.println("Enter menu");
+  Serial.println("> Enter menu");
 
   m_menuPos = 0;
   outputMenuPosition();
@@ -38,7 +38,7 @@ void Menu::loop() {
     }
   }
   
-  Serial.println("Leave menu");
+  Serial.println("< Leave menu");
 }
 
 /**
@@ -51,11 +51,11 @@ void Menu::outputMenuPosition() {
   delay(100);
 
   if (m_menuPos == 0) {
-    Serial.println("Select Device");
+    Serial.println("-> Select Device");
   } else if (m_menuPos == 1) {
-    Serial.println("Debug Menu");
+    Serial.println("-> Developer mode");
   } else if (m_menuPos == 2) {
-    Serial.println("Exit");
+    Serial.println("-> Exit");
   }
 
   for (uint8_t i = 0; i <= m_menuPos; i++) {
@@ -65,11 +65,16 @@ void Menu::outputMenuPosition() {
     delay(100);
   }
 
+  delay(500);
+
   // Block until the key is released...
   while(ui.isButtonADown()) {
     // wait for key down
   }
   delay(5);
+
+
+  ui.setLed(LED_C_YELLOW);
 }
 
 /**
@@ -147,6 +152,63 @@ void Menu::debug() {
 }
 
 /**
+ * Select output signal
+ */
+void Menu::selectSignal() {
+  ui.setLed(LED_C_VIOLET);
+
+  uint8_t signalId = 0;
+
+  while (true) {
+    if (ui.isButtonADown()) {
+      ui.setLed(LED_C_OFF);
+
+      delay(5);
+      while (ui.isButtonADown());
+      delay(5);
+
+      signalId++;
+
+      if (signalId > 3) {
+        signalId = 1;
+      }
+
+      for (uint8_t i = 0; i < signalId; i++) {
+        ui.setLed(LED_C_YELLOW);
+        delay(500);
+        ui.setLed(LED_C_OFF);
+        delay(100);
+      }
+
+      delay(500);
+      ui.setLed(LED_C_VIOLET);
+    }
+
+    if (ui.isButtonBDown()) {
+      ui.setLed(LED_C_OFF);
+
+      unsigned long start = millis();
+      delay(5);
+      while (ui.isButtonBDown());
+      delay(5);
+
+      if ((millis() - start) >= 3000) {
+        Serial.println("Stored");
+        ui.setLed(LED_C_GREEN);
+      } else {
+        Serial.println("Not stored");
+        ui.setLed(LED_C_RED);
+      }
+
+      delay(1000);
+      ui.setLed(LED_C_OFF);
+      delay(1000);
+      return;
+    }    
+  }
+}
+
+/**
  * Execute a menu step
  */
 bool Menu::step() {
@@ -158,9 +220,11 @@ bool Menu::step() {
     Serial.print("Confirm menu ");
     Serial.println(m_menuPos);
 
-    if (m_menuPos == 1) {
-      // Debug
-      debug();
+    if (m_menuPos == 0) {
+      selectSignal();
+      return true;
+    } else if (m_menuPos == 1) {
+      // TODO Developer mode
       return true;
     } else if (m_menuPos == 2) {
       // Exit

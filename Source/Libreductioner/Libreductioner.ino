@@ -17,7 +17,6 @@
 #include "SignalOutput.h"
 #include "Menu.h"
 
-
 /**
  * Last state, to log changes
  */
@@ -48,6 +47,17 @@ void loop() {
     signalOutput.stop();
     menu.loop();
     signalOutput.start();
+
+    // Update LED on next loop iteration
+    g_lastCableConnected = 0;
+  }
+
+  if (Serial.available()) {
+    char c = Serial.read();
+    if ('d' == c) {
+      // Selfcheck / Output and loop input test
+      menu.debugRun();
+    }
   }
 
   if (signalOutput.isCableConnected()) {

@@ -27,6 +27,11 @@ public:
    * Loop call for menu
    */
   void loop();
+  
+  /**
+   * Run a single debug run
+   */
+  void debugRun();
 
 private:
   /**
@@ -40,9 +45,9 @@ private:
   void debug();
 
   /**
-   * Run a single debug run
+   * Select output signal
    */
-  void debugRun();
+  void selectSignal();
 
   /**
    * Output menu position
